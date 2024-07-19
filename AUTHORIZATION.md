@@ -238,3 +238,10 @@ and download it back again
 pelican object get pelican://osdf-itb.osg-htc.org/pearc24-tutorial/home/example@pelicanplatform.org /tmp/100MB.download
 ```
 
+This should be a success!  Try a few other sub-commands of `pelican object` to explore the origin:
+
+- *get*: Get an object from a Pelican federation
+- *ls*: List objects in a namespace from a federation
+- *put*: Send a file to a Pelican federation
+- *stat*: Stat objects in a namespace from a federation
+
