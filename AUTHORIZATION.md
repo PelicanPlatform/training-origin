@@ -1,9 +1,16 @@
-
 # PEARC24 Pelican Tutorial - Authorization Module
 
 This page contains the materials that will be used during the
 [PEARC24 tutorial](https://pearc.acm.org/pearc24/workshops-and-tutorials/)
 on how to use a Pelican data federation.
+
+**Hands-on Schedule**
+
+- "Deploy a Pelican Origin" ([README.md](./README.md))
+- "Exploring Tokens in a Pelican Ecosystem" ([AUTHORIZATION.md](./AUTHORIZATION.md)) <- ***current document***
+- "Using Data From the OSDF" ([pelican-plugin/README.md](./pelican-plugin/README.md))
+
+## Exploring Tokens in a Pelican Ecosystem
 
 <!--
 The corresponding slides can be found [here](https://example.com/todo)
