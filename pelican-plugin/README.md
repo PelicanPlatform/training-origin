@@ -4,8 +4,10 @@ Clone repository and then open the [README.ipynb](README.ipynb) file.
 
 Alternatively, the commands are listed below. 
 
+-----
+
 ```bash
-WORKDIR=$HOME/pearc24-pelican-jobs
+WORKDIR=$HOME/training-origin/pelican-plugin
 echo $WORKDIR
 ```
 
@@ -67,7 +69,7 @@ cat job*.output
 cat output*.txt
 ```
 
-## Job Submission with Pelican
+## Job Submission with Pelican and OSDF
 
 ### One Job Fetching a Container and Data File
 
@@ -156,4 +158,28 @@ ls results/
 
 ```bash
 cat logs/*.out
+```
+
+## Job Submission with Pelican and YOUR origin
+
+Let's go back to our sample directory and try to download a file from YOUR origin in a job!
+
+
+```bash
+cd $WORKDIR/sample
+```
+
+
+```bash
+cat sample-origin.submit
+```
+
+
+```bash
+condor_submit sample-origin.submit
+```
+
+
+```bash
+condor_q
 ```
