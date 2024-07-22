@@ -2,10 +2,13 @@
 # variables defined by HTCondor
 JOBID=$(Cluster).$(Process)
 
-executable = sample-exec.sh
-arguments = $(JOBID) input.txt
+# Update this link with YOUR origin name!!
+OBJ_LOC=pelican://osdf-itb.osg-htc.org/HTC24-pelicantrain20##
 
-transfer_input_files = input.txt
+executable = sample-exec.sh
+arguments = $(JOBID) test.txt 
+
+transfer_input_files = $(OBJ_LOC)/test.txt 
 should_transfer_files = YES
 
 log = job.$(JOBID).log
