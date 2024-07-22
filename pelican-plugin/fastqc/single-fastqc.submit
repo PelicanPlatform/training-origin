@@ -1,0 +1,30 @@
+# HTCondor Submit File: single-fastqc.submit
+
+# Provide our executable and arguments
+executable = fastqc.sh
+arguments = test.fastq
+
+# Provide the container for our software from OSDF
+universe    = container
+container_image = pelican://osg-htc.org/ospool/uc-shared/public/osg-training/tutorial-fastqc/fastqc.sif
+
+# List files that need to be transferred to the job from OSDF
+transfer_input_files = pelican://osg-htc.org/ospool/uc-shared/public/osg-training/tutorial-fastqc/test.fastq
+should_transfer_files = YES
+
+# Tell HTCondor to transfer output to our /results directory
+transfer_output_files = test_fastqc.html
+transfer_output_remaps = "test_fastqc.html = results/test.trim.sub_fastqc.html"
+
+# Track job information
+log = logs/$(Cluster).fastqc.log
+output = logs/$(Cluster).fastqc.out
+error = logs/$(Cluster).fastqc.err
+
+# Resource Requests
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+
+# Tell HTCondor to run our job once
+queue 1

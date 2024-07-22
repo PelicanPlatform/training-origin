@@ -1,0 +1,25 @@
+# Cluster and Process are default
+# variables defined by HTCondor
+JOBID=$(Cluster).$(Process)
+
+# Update this link with YOUR origin name!!
+OBJ_LOC=pelican://osdf-itb.osg-htc.org/HTC24-pelicantrain20##
+
+executable = sample-exec.sh
+arguments = $(JOBID) test.txt 
+
+transfer_input_files = $(OBJ_LOC)/test.txt 
+should_transfer_files = YES
+
+log = job.$(JOBID).log
+error = job.$(JOBID).error
+output = job.$(JOBID).output
+
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+
++JobDurationCategory = "Medium"
+
+# Queue one job with the above specifications.
+queue 1
