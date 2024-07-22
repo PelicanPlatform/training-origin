@@ -1,4 +1,25 @@
-# Materials for PEARC24 Pelican Tutorial
+# PEARC24 Pelican Tutorial
+
+This repository (branch) contains the materials that will be used during the PEARC24 session ["Data in Flight - Delivering Data with Pelican"](https://web.cvent.com/event/f318e73c-2230-432a-a044-b75625020543/websitePage:afd80266-008e-414b-9f94-2fd9b4dd1924?session=5dcb0b3d-1e72-4696-ad36-a3653eccf5f0&shareLink=true).
+
+**Hands-on Schedule**
+
+- "Deploy a Pelican Origin" ([README.md](/README.md))
+- "Exploring Tokens in a Pelican Ecosystem" ([AUTHORIZATION.md](/AUTHORIZATION.md))
+- "Using Data From the OSDF" ([pelican-plugin/README.md](/pelican-plugin/README.md)) <- ***current document***
+
+## Using Data From the OSDF
+
+Accompanying slides: [here](https://docs.google.com/presentation/d/1RrSfgQIgDNI6EboqSOk-7OVRTlSfcdmPsI73JrjGzsQ/edit#slide=id.g2ed4e8e0b58_0_0)
+
+**Jump to:**
+
+* [Setup](#setup)
+* [Recap](#recap-fetching-data-with-pelican)
+* [Sample Job Submission](#sample-job-submission)
+* [Job Submission with Pelican and OSDF](#job-submission-with-pelican-and-osdf)
+
+## Setup
 
 Clone repository and then open the [README.ipynb](README.ipynb) file.
 
