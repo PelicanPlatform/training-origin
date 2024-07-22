@@ -83,7 +83,7 @@ the client can acquire tokens using OAuth2-based workflows.
 Let's try it out.  Execute the following:
 
 ```
-pelican object copy pelican://osdf-itb.osg-htc.org/pearc24-tutorial/protected/hello_world.txt /tmp/hello_world.txt
+pelican object copy pelican://osdf-itb.osg-htc.org/pearc24-tutorial/protected/hello_world.txt /tmp/hello_world_protected.txt
 ```
 
 Note the familiar `pelican://` URL syntax and the object name.  The client will have output similar to this:
@@ -221,7 +221,7 @@ pelican object get pelican://osdf-itb.osg-htc.org/pearc24-tutorial/read-only/100
 Upload this file to your home directory (replace `example@pelicanplatform.org` with your username)
 
 ```
-pelican object put /tmp/100MB.dat pelican://osdf-itb.osg-htc.org/pearc24-tutorial/example@pelicanplatform.org/100MB.dat
+pelican object put /tmp/100MB.dat pelican://osdf-itb.osg-htc.org/pearc24-tutorial/home/example@pelicanplatform.org/100MB.dat
 ```
 
 > Try uploading to `/pearc24-tutorial/read-only/100MB.dat`.  What error do you see?
