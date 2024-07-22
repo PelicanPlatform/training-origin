@@ -105,32 +105,97 @@ More information on the Pelican CLient can be found here: [https://docs.pelicanp
    [trainee@pelicantrain20## pelican-client]$ ls pelican-7.9.2
    LICENSE pelican README.md
    ```
+### Add the Pelican Client to Your PATH
 
-### Use the Pelican Client
+To make it easier to use, we will copy the `pelican` binary into a folder that is a part of the default `$PATH`.
 
-1. Move into the directory with the `pelican` binary
+1. Move into the folder with the `pelican` binary.
 
    ```
    cd pelican-7.9.2
    ```
 
-   or
+   or if you're not in the right directory, the following command should get you to the right place:
 
    ```
    cd $HOME/training-origin/pelican-client/pelican-7.9.2
    ```
 
+2. Create the directory for storing the `pelican` binary:
+
+   ```
+   mkdir -p $HOME/.local/bin
+   ```
+
+3. Copy the `pelican` binary into this new folder.
+
+   ```
+   cp ./pelican $HOME/.local/bin/
+   ```
+
+   > If you lost track of which directoy the `pelican` binary is located, running the following command should get you to the right place:
+   >
+   > ```
+   > cd $HOME/training-origin/pelican-client/pelican-7.9.2
+   > ```
+
+4. Check that the `pelican` binary is in your PATH.
+
+   Move to a different directory.
+
+   ```
+   cd $HOME
+   ```
+
+   Use `which` to find where the `pelican` command is located. 
+   This should match the location you placed it, above.
+
+   ```
+   which pelican
+   ```
+
+   Check the version of Pelican.
+
+   ```
+   pelican --version
+   ```
+
+   Should see something like this:
+
+   ```
+   Version: 7.9.2
+   Build Date: 2024-06-25T15:26:34Z
+   Build Commit: a024f4636b25ecccb26308769c0256d488d62392
+   Built By: goreleaser
+   ```
+
+### Use the Pelican Client
+
+You'll be downloading objects into your home directory.
+
+1. Move into your home directory
+
+   ```
+   cd ~
+   ```
+
+   or
+
+   ```
+   cd $HOME
+   ```
+
 2. "Get" the test object from the OSDF
 
    ```
-   ./pelican object get pelican://osg-htc.org/ospool/uc-shared/public/OSG-Staff/validation/test.txt downloaded-test.txt
+   pelican object get pelican://osg-htc.org/ospool/uc-shared/public/OSG-Staff/validation/test.txt downloaded-test.txt
    ```
 
    The current directory should now contain the object `downloaded-test.txt`. 
 
    ```
-   [trainee@pelicantrain20## pelican-7.9.2]$ ls
-   downloaded-test.txt LICENSE pelican README.md
+   [trainee@pelicantrain20## ~]$ ls
+   downloaded-test.txt training-origin
    ```
 
 3. Print out the file contents
@@ -142,7 +207,7 @@ More information on the Pelican CLient can be found here: [https://docs.pelicanp
    You should see something like this:
 
    ```
-   [trainee@pelicantrain20## pelican-7.9.2]$ cat downloaded-test.txt
+   [trainee@pelicantrain20## ~]$ cat downloaded-test.txt
    Hello, World!
    ```
 
@@ -196,8 +261,10 @@ To make it easier to restart the Origin and serve a specific namespace, we are g
 2. Generate the Issuer JWK files using the Pelican binary
 
    ```
-   ../../pelican-client/pelican-7.9.2/pelican generate keygen
+   pelican generate keygen
    ```
+
+   > Future note: The developers are considering changing the syntax of this command to something like `pelican key generate` to properly follow the `<command> <noun> <verb>` syntax, so this specific command may be different in the future.
 
 3. Confirm the Issuer JWK files were created
 
@@ -333,17 +400,26 @@ This can greatly reduce the load on the origin serving the object.
 
 After your Origin has been online for a few minutes, you can use the caching system to transfer the file, which is default mechanism of transfer.
 
-1. Move to the Client directory
+1. Move to your home directory
 
    ```
-   cd $HOME/training-origin/pelican-client/pelican-7.9.2
+   cd $HOME
    ```
 
 2. Get your object 
 
    ```
-   ./pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt ./cacheread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt ./cacheread-test.txt
    ```
+
+   **You will need to change `pelicantrain20##` to the number used by your specific virtual machine, e.g., `pelicantrain2001`.**
+
+   > If you do not change `pelicantrain20##` to the appropriate number for your virtual machine, you will get an error like this:
+   > 
+   > ```
+   > ERROR[2024-07-02T13:29:40-05:00] Error while querying the Director: 404: No namespace found for path. Either it doesn't exist, or the Director is experiencing problems
+   > ```
+   >
 
 3. Check the contents of the downloaded object
 
@@ -360,17 +436,8 @@ Next, you will download your data directly from the Origin, bypassing the cache 
 1. Get your object directly using the `?directread` option.
 
    ```
-   ./pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt?directread ./directread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt?directread ./directread-test.txt
    ```
-
-   **You will need to change `pelicantrain20##` to the number used by your specific virtual machine, e.g., `pelicantrain2001`.**
-
-   > If you do not change `pelicantrain20##` to the appropriate number for your virtual machine, you will get an error like this:
-   > 
-   > ```
-   > ERROR[2024-07-02T13:29:40-05:00] Error while querying the Director: 404: No namespace found for path. Either it doesn't exist, or the Director is experiencing problems
-   > ```
-   >
 
 2. Check the contents of the downloaded object
 
@@ -395,16 +462,16 @@ Now you will explore an important implication about how the caching system works
    mv test.txt renamed-test.txt
    ```
 
-3. Move back to the Client folder
+3. Move back to your home directory
 
    ```
-   cd $HOME/training-origin/pelican-client/pelican-7.9.2
+   cd $HOME
    ```
 
 4. Try to download the object directly
 
    ```
-   ./pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt?directread ./directread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt?directread ./directread-test.txt
    ```
 
    This will FAIL! 
@@ -412,7 +479,7 @@ Now you will explore an important implication about how the caching system works
 5. Try to download the object using caching system (default)
 
    ```
-   ./pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt ./cacheread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt ./cacheread-test.txt
    ```
 
    This will SUCCEED!
