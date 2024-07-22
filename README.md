@@ -1,6 +1,14 @@
 # PEARC24 Pelican Tutorial
 
+**Hands-on Schedule**
+
+- "Deploy a Pelican Origin" ([README.md](./README.md)) <- ***current document***
+- "Exploring Tokens in a Pelican Ecosystem" ([AUTHORIZATION.md](./AUTHORIZATION.md))
+- "Using Data From the OSDF" ([pelican-plugin/README.md](./pelican-plugin/README.md))
+
 This repository contains the materials that will be used during the PEARC24 session ["Data in Flight - Delivering Data with Pelican"](https://web.cvent.com/event/f318e73c-2230-432a-a044-b75625020543/websitePage:afd80266-008e-414b-9f94-2fd9b4dd1924?session=5dcb0b3d-1e72-4696-ad36-a3653eccf5f0&shareLink=true).
+
+## Deploy a Pelican Origin
 
 Accompanying slides: [go.wisc.edu/19z0oe](https://go.wisc.edu/19z0oe)
 
