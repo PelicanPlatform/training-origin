@@ -1,12 +1,9 @@
-# PEARC24 Pelican Tutorial
+# PEARC24 Pelican Tutorial - Using Data from OSDF
 
-This repository (branch) contains the materials that will be used during the PEARC24 session ["Data in Flight - Delivering Data with Pelican"](https://web.cvent.com/event/f318e73c-2230-432a-a044-b75625020543/websitePage:afd80266-008e-414b-9f94-2fd9b4dd1924?session=5dcb0b3d-1e72-4696-ad36-a3653eccf5f0&shareLink=true).
-
-**Hands-on Schedule**
+## Other Tutorial Sections
 
 - "Deploy a Pelican Origin" ([README.md](/README.md))
 - "Exploring Tokens in a Pelican Ecosystem" ([AUTHORIZATION.md](/AUTHORIZATION.md))
-- "Using Data From the OSDF" ([pelican-plugin/README.md](/pelican-plugin/README.md)) <- ***current document***
 
 ## Using Data From the OSDF
 
@@ -20,6 +17,16 @@ Accompanying slides: [here](https://docs.google.com/presentation/d/1RrSfgQIgDNI6
 * [Job Submission with Pelican and OSDF](#job-submission-with-pelican-and-osdf)
 
 ## Setup
+
+Access a notebook here: https://notebook.ospool.osg-htc.org/
+
+Authenticate with one of the following: 
+* GitHub
+* ORCID
+* ACCESS ID
+* Your local university credentials
+
+Select the “Basic” server and click “Start”
 
 Clone repository and then open the [README.ipynb](README.ipynb) file.
 
