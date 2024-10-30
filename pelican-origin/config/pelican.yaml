@@ -19,7 +19,7 @@ Origin:
   EnableDirectReads: true
   Exports:
     # Each namespace (FederationPrefix) has a section the looks like this:
-    - FederationPrefix: "/PEARC24-<vm-name>"
+    - FederationPrefix: "/NDCC24-<vm-name>"
       StoragePrefix: "/data"
       Capabilities: ["PublicReads", "Listings", "DirectReads"]
 

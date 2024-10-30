@@ -1,21 +1,21 @@
-# PEARC24 Pelican Tutorial
+# NDC-C Pelican Origin Tutorial
 
-This repository (branch) contains the materials that will be used during the PEARC24 session ["Data in Flight - Delivering Data with Pelican"](https://web.cvent.com/event/f318e73c-2230-432a-a044-b75625020543/websitePage:afd80266-008e-414b-9f94-2fd9b4dd1924?session=5dcb0b3d-1e72-4696-ad36-a3653eccf5f0&shareLink=true).
+This repository (branch) contains the materials that will be used for the Pelican Origin Tutorial as part of the NDC-C Pathfinders Hackathon, on Nov. 13, 2024.
 
 **Hands-on Schedule**
 
 - "Deploy a Pelican Origin" ([README.md](./README.md)) <- ***current document***
-- "Exploring Tokens in a Pelican Ecosystem" ([AUTHORIZATION.md](./AUTHORIZATION.md))
-- "Using Data From the OSDF" ([pelican-plugin/README.md](./pelican-plugin/README.md))
+- [Optional] "Exploring Tokens in a Pelican Ecosystem" ([AUTHORIZATION.md](./AUTHORIZATION.md))
+- [Optional] "Using Data From the OSDF" ([pelican-plugin/README.md](./pelican-plugin/README.md))
 
 ## Deploy a Pelican Origin
 
-Accompanying slides: [go.wisc.edu/19z0oe](https://go.wisc.edu/19z0oe)
+Accompanying slides: ________<!-- [go.wisc.edu/19z0oe](https://go.wisc.edu/19z0oe)-->
 
 The following instructions assume the computer you are using has Docker and the web host certificates for using https, and that you have permission to use the OSDF ITB data federation (`osdf-itb.osg-htc.org`).
-PEARC24 tutorial participants will be given access to a virtual machine that satisfies these requirements.
+Participants of the Hackathon will be given access to a virtual machine that satisfies these requirements.
 
-This tutorial uses Pelican v7.9.2.
+This tutorial uses Pelican v7.10.11. <!-- previously 7.9.2.-->
 
 **Jump to:**
 
@@ -27,12 +27,12 @@ This tutorial uses Pelican v7.9.2.
 
 ## Setup
 
-> These instructions are for PEARC24 participants only and will not work for other users.
-
 ### Logging in
 
+> These instructions are for NDC-C Hackathon participants only and will not work for other users.
+
 You must have registered prior to the tutorial to be given access to a virtual machine for use during the tutorial.
-Separate instructions were emailed to participants who signed up in advance. 
+<!--Separate instructions were emailed to participants who signed up in advance. -->
 
 1. If you registered in advance, you can log in to your virtual machine with
 
@@ -66,23 +66,30 @@ Separate instructions were emailed to participants who signed up in advance.
 
    > Later in the tutorial, you will be using one window to run the Pelican server and using the other window to transfer data from that server.
 
+**The following commands should be run in your terminal with the `[trainee@pelicantrain20## ]$` prompt** unless specified otherwise.
+
 ### Clone the materials
 
-Download the materials of this repository by running the following command:
+In your `$HOME` directory on the virtual machine, download the materials of this repository by running the following command:
 
 ```
-git clone -b pearc24-tutorial https://github.com/PelicanPlatform/training-origin
+git clone https://github.com/PelicanPlatform/training-origin
 ```
 
 We have provided some initial files/organization to make the following tutorial smoother.
 The rest of this document contains the commands that will be executed during the course of the tutorial.
 Explanations of what is being done and why are provided in the accompanying presentation.
 
+> These materials are in the `ndcc24-tutorial` branch of the repository, which is currently the default branch of the repository.
+> In the future, the default branch will update to that of the latest tutorial.
+
 ## Using the Pelican Client to Transfer Data
 
-More information on the Pelican CLient can be found here: [https://docs.pelicanplatform.org/getting-started/accessing-data](https://docs.pelicanplatform.org/getting-started/accessing-data).
+Introductory information on the Pelican Client can be found here: [https://docs.pelicanplatform.org/getting-started/accessing-data](https://docs.pelicanplatform.org/getting-started/accessing-data).
 
 ### Download and Extract the Pelican Client
+
+Adapted from the installation instructions here: [https://docs.pelicanplatform.org/install/linux-binary](https://docs.pelicanplatform.org/install/linux-binary).
 
 1. Move into the provided `pelican-client` directory
 
@@ -90,11 +97,12 @@ More information on the Pelican CLient can be found here: [https://docs.pelicanp
    cd $HOME/training-origin/pelican-client
    ```
 
-2. Download the client tarball from the Pelican Platform 
+2. Download the client tarball from the Pelican Platform. *Use the command below to ensure you are using the correct version for this tutorial!*
 
    ```
-   wget https://github.com/PelicanPlatform/pelican/releases/download/v7.9.2/pelican_Linux_x86_64.tar.gz
+   wget https://github.com/PelicanPlatform/pelican/releases/download/v7.10.11/pelican_Linux_x86_64.tar.gz
    ```
+   <!-- last used this link: https://github.com/PelicanPlatform/pelican/releases/download/v7.9.2/pelican_Linux_x86_64.tar.gz -->
 
    This link comes from the "Install" page of the documentation for Pelican ([https://docs.pelicanplatform.org/install](https://docs.pelicanplatform.org/install))
    for the file `pelican_Linux_x86_64.tar.gz`.
@@ -105,12 +113,12 @@ More information on the Pelican CLient can be found here: [https://docs.pelicanp
    tar -xzf pelican_Linux_x86_64.tar.gz
    ```
 
-   This will create a directory `pelican-7.9.2`, which in turn contains the client binary.
+   This will create a directory `pelican-7.10.11`, which in turn contains the client binary.
 
    ```
    [trainee@pelicantrain20## pelican-client]$ ls
-   pelican-7.9.2 pelican_Linux_x86_64.tar.gz
-   [trainee@pelicantrain20## pelican-client]$ ls pelican-7.9.2
+   pelican-7.10.11 pelican_Linux_x86_64.tar.gz
+   [trainee@pelicantrain20## pelican-client]$ ls pelican-7.10.11
    LICENSE pelican README.md
    ```
 ### Add the Pelican Client to Your PATH
@@ -120,13 +128,13 @@ To make it easier to use, we will copy the `pelican` binary into a folder that i
 1. Move into the folder with the `pelican` binary.
 
    ```
-   cd pelican-7.9.2
+   cd pelican-7.10.11
    ```
 
    or if you're not in the right directory, the following command should get you to the right place:
 
    ```
-   cd $HOME/training-origin/pelican-client/pelican-7.9.2
+   cd $HOME/training-origin/pelican-client/pelican-7.10.11
    ```
 
 2. Create the directory for storing the `pelican` binary:
@@ -144,7 +152,7 @@ To make it easier to use, we will copy the `pelican` binary into a folder that i
    > If you lost track of which directoy the `pelican` binary is located, running the following command should get you to the right place:
    >
    > ```
-   > cd $HOME/training-origin/pelican-client/pelican-7.9.2
+   > cd $HOME/training-origin/pelican-client/pelican-7.10.11
    > ```
 
 4. Check that the `pelican` binary is in your PATH.
@@ -171,11 +179,17 @@ To make it easier to use, we will copy the `pelican` binary into a folder that i
    Should see something like this:
 
    ```
+   ____________________
+   ```
+
+<!-- Previously:
+   ```
    Version: 7.9.2
    Build Date: 2024-06-25T15:26:34Z
    Build Commit: a024f4636b25ecccb26308769c0256d488d62392
    Built By: goreleaser
    ```
+-->
 
 ### Use the Pelican Client
 
@@ -242,7 +256,7 @@ This structure is not required in order to run your own Pelican Origin.
    [trainee@pelicantrain20## pelican-origin]$ ls data/
    test.txt
    [trainee@pelicantrain20## pelican-origin]$ cat data/test.txt
-   Hello World, from PEARC24!
+   Hello World, from the NDC-C Pathfinder Hackathon 2024!
    ```
 
 The files are organized as such:
@@ -287,7 +301,7 @@ Pelican uses a YAML file to provide the configuration for its services, typicall
 
 Each Origin has at least three unique entries in the configuration file: (i) the data federation URL it is joining, (ii) the "federation prefix" or "namespace" that it will serve in that data federation, and (iii) the hostname of the web host that is running the Origin.
 
-For this tutorial, your Origin will be joining the test instance of the OSDF and serving the namespace `/PEARC24-<vm-name>` from the web host `<vm-name>.chtc.wisc.edu`.
+For this tutorial, your Origin will be joining the test instance of the OSDF and serving the namespace `/NDCC24-<vm-name>` from the web host `<vm-name>.chtc.wisc.edu`.
 We've provided most of the necessary configuration in the `pelican.yaml` file you copied above, including the federation URL for the OSDF test instance, but you will need to update the config with the name of your specific virtual machine.
 
 1. Update the config with the name of your virtual machine
@@ -302,9 +316,9 @@ We've provided most of the necessary configuration in the `pelican.yaml` file yo
 
    a. **Namespace**
 
-      *Before:* `    - FederationPrefix: "/PEARC24-<vm-name>"`
+      *Before:* `    - FederationPrefix: "/NDCC24-<vm-name>"`
    
-      *After:* `    - FederationPrefix: "/PEARC24-pelicantrain2001"`
+      *After:* `    - FederationPrefix: "/NDCC24-pelicantrain2001"`
     
    b. **Hostname**
 
@@ -417,7 +431,7 @@ After your Origin has been online for a few minutes, you can use the caching sys
 2. Get your object 
 
    ```
-   pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt ./cacheread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt ./cacheread-test.txt
    ```
 
    **You will need to change `pelicantrain20##` to the number used by your specific virtual machine, e.g., `pelicantrain2001`.**
@@ -444,7 +458,7 @@ Next, you will download your data directly from the Origin, bypassing the cache 
 1. Get your object directly using the `?directread` option.
 
    ```
-   pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt?directread ./directread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt?directread ./directread-test.txt
    ```
 
 2. Check the contents of the downloaded object
@@ -479,7 +493,7 @@ Now you will explore an important implication about how the caching system works
 4. Try to download the object directly
 
    ```
-   pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt?directread ./directread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt?directread ./directread-test.txt
    ```
 
    This will FAIL! 
@@ -487,14 +501,14 @@ Now you will explore an important implication about how the caching system works
 5. Try to download the object using caching system (default)
 
    ```
-   pelican object get pelican://osdf-itb.osg-htc.org/PEARC24-pelicantrain20##/test.txt ./cacheread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt ./cacheread-test.txt
    ```
 
    This will SUCCEED!
 
-Because the object `/PEARC24-pelicantrain20##/test.txt` had been previously transferred using the caching system, a copy of that object *was kept in a cache*.
+Because the object `/NDCC24-pelicantrain20##/test.txt` had been previously transferred using the caching system, a copy of that object *was kept in a cache*.
 By default, Pelican attempts to transfer objects from the nearest cache.
-So the default transfer attempt succeeded for `/PEARC24-pelicantrain20##/test.txt` because the Client downloaded the object from a cache.
+So the default transfer attempt succeeded for `/NDCC24-pelicantrain20##/test.txt` because the Client downloaded the object from a cache.
 The attempt at downloading the object directly from the Origin failed, because that object no longer existed at the Origin.
 
 This behavior applies generally to any change to objects stored in the Origin.
