@@ -1,8 +1,6 @@
-# PEARC24 Pelican Tutorial - Authorization Module
+# NDC-C Pelican Origin Tutorial - Authorization Module
 
-This page contains the materials that will be used during the
-[PEARC24 tutorial](https://pearc.acm.org/pearc24/workshops-and-tutorials/)
-on how to use a Pelican data federation.
+This page is an optional section of the Pelican Origin Tutorial for the NDC-C Pathfinders Hackathon.
 
 **Hands-on Schedule**
 
@@ -12,15 +10,16 @@ on how to use a Pelican data federation.
 
 ## Exploring Tokens in a Pelican Ecosystem
 
-<!--
-The corresponding slides can be found [here](https://example.com/todo)
--->
-
 The following instructions assume you have followed the first module of the tutorial
 on setting up your own origin; for this module, we will use the same environment
 with the Pelican client installed.  Verify that Pelican is available in your currently-running
 shell environment by verifying you have a recent version of the client:
 
+```
+____________________
+```
+
+<!-- Previously:
 ```
 $ pelican --version
 Version: 7.9.3
@@ -28,11 +27,12 @@ Build Date: 2024-07-02T14:48:46Z
 Build Commit: 5a3ee6d8633036a7dde45b2fcd34f1154995041a
 Built By: goreleaser
 ```
+-->
 
 If the above command did not work, please follow the (setup)[#setup] section; otherwise, you
 may proceed to [Acquiring a Token](#acquiring-a-token)
 
-This module was tested with Pelican version 7.9.3.
+This module was tested with Pelican version v7.10.11. <!-- previously: 7.9.3. -->
 
 **Jump to:**
 
@@ -50,12 +50,18 @@ To do this, [follow the Pelican installation page](https://docs.pelicanplatform.
 simplified Linux-only version of the instructions are found below:
 
 ```
+___________________
+```
+
+<!-- Previously: 
+```
 mkdir -p ~/.local/bin
 pushd ~/.local/bin
 curl -Ls https://github.com/PelicanPlatform/pelican/releases/download/v7.9.3/pelican_Linux_x86_64.tar.gz | tar zx --strip-components=1 pelican-7.9.3/pelican
 popd
 export PATH=~/.local/bin:$PATH
 ```
+-->
 
 These steps:
 
@@ -69,14 +75,21 @@ If `~/.local/bin` is not already in your `PATH` variable, the last line will nee
 
 Each object in the data federation can be broken into two parts - the _namespace prefix_ and the _object name_.  For this
 module, we have created a sample origin in the test federation at <https://tutorial-origin.osdf-dev.chtc.io/> associated
-with the namespace `/pearc24-tutorial`.  Inside the object store behind the origin, we have an object named `/protected/hello_world.txt`.
+with the namespace `ndcc24-tutorial` <!-- previously: `/pearc24-tutorial`-->.  Inside the object store behind the origin, we have an object named `/protected/hello_world.txt`.
 
 Thus, the full federation name is:
 
 ```
+/ndcc24-tutorial/protected/hello_world.txt
+ ^^ Prefix ^^        ^^ Object name ^^
+```
+
+<!-- Previously:
+```
 /pearc24-tutorial/protected/hello_world.txt
  ^^ Prefix ^^        ^^ Object name ^^
 ```
+-->
 
 We are using the token issuer built-in to the origin; so, for this object we will need a token with *read* authorization for the
 prefix */protected* from the `https://tutorial-origin.osdf-dev.chtc.io` issuer.
@@ -90,13 +103,19 @@ the client can acquire tokens using OAuth2-based workflows.
 Let's try it out.  Execute the following:
 
 ```
+pelican object copy pelican://osdf-itb.osg-htc.org/ndcc24-tutorial/protected/hello_world.txt /tmp/hello_world_protected.txt
+```
+
+<!-- Previously: 
+```
 pelican object copy pelican://osdf-itb.osg-htc.org/pearc24-tutorial/protected/hello_world.txt /tmp/hello_world_protected.txt
 ```
+-->
 
 Note the familiar `pelican://` URL syntax and the object name.  The client will have output similar to this:
 
 ```
-$ pelican object copy pelican://osdf-itb.osg-htc.org/pearc24-tutorial/protected/hello_world.txt /tmp/hello_world_protected.txt
+$ pelican object copy pelican://osdf-itb.osg-htc.org/ndcc24-tutorial/protected/hello_world.txt /tmp/hello_world_protected.txt
 The client is able to save the authorization in a local file.
 This prevents the need to reinitialize the authorization for each transfer.
 You will be asked for this password whenever a new session is started.
@@ -104,14 +123,22 @@ Please provide a new password to encrypt the local OSDF client configuration fil
 
 ```
 
+<!-- Previously:
+$ pelican object copy pelican://osdf-itb.osg-htc.org/pearc24-tutorial/protected/hello_world.txt /tmp/hello_world_protected.txt
+-->
+
 The client will store your credentials encrypted on disk to avoid a web browser interaction for each invocation;
 this prompt is asking you to set an encryption password.  Type your preferred password and hit enter.
 
 Now the client will request a token on your behalf; the issuer will require you to go to a URL to authorize the
 request:
 
-```
+<!-- Previously:
 $ pelican object copy pelican://osdf-itb.osg-htc.org/pearc24-tutorial/protected/hello_world.txt /tmp/hello_world_protected.txt
+-->
+
+```
+$ pelican object copy pelican://osdf-itb.osg-htc.org/ndcc24-tutorial/protected/hello_world.txt /tmp/hello_world_protected.txt
 The client is able to save the authorization in a local file.
 This prevents the need to reinitialize the authorization for each transfer.
 You will be asked for this password whenever a new session is started.
@@ -124,6 +151,7 @@ https://tutorial-origin.osdf-dev.chtc.io/api/v1.0/issuer/device?user_code=8E2_1F
 
 You will be prompted to sign in via CILogon when you go to this page.  Please sign in with the same account you used for registering at the tutorial.
 
+> ____________________
 > *Bug Alert!*  Pelican 7.9.3 does not correctly redirect the browser back to the prompt.  If you end up at the origin home page (with a permission denied), copy/paste the URL a second time.
 
 Depending on the speed of your internet connection, you may or may not see a progress bar as the file downloads.  Verify you received the test file:
@@ -151,7 +179,7 @@ The OSDF client configuration is encrypted.  Enter your password for the local O
 
 OSDF:
     oauth_client:
-        - prefix: /pearc24-tutorial
+        - prefix: /ndcc24-tutorial
           client_id: oa4mp:/client_id/48b20795ab304340d7de294be59e19fb
           client_secret: r96W8iJW-REDACTED-oh0ME3A5
           tokens:
@@ -189,7 +217,7 @@ Here's the decoded payload contents from the example with annotations:
 
 Note the permissions provided in the scopes:
 
-- Read and modify the `/protected` namespace.  This permits the access to the object `/pearc24-tutorial/protected/hello_world.txt`.
+- Read and modify the `/protected` namespace.  This permits the access to the object `/ndcc24-tutorial/protected/hello_world.txt`. <!-- previously `/pearc24-tutorial/...`-->
 - Read and modify `/home/example@pelicanplatform.org`.
 - Read-only for `/read-only`.
 
@@ -222,27 +250,27 @@ Now that we have a token and understand what it can do, try a few example data m
 Download a sample 100MB file from the read-only directory:
 
 ```
-pelican object get pelican://osdf-itb.osg-htc.org/pearc24-tutorial/read-only/100MB.dat /tmp/100MB.dat
+pelican object get pelican://osdf-itb.osg-htc.org/ndcc24-tutorial/read-only/100MB.dat /tmp/100MB.dat
 ```
 
 Upload this file to your home directory (replace `example@pelicanplatform.org` with your username)
 
 ```
-pelican object put /tmp/100MB.dat pelican://osdf-itb.osg-htc.org/pearc24-tutorial/home/example@pelicanplatform.org/100MB.dat
+pelican object put /tmp/100MB.dat pelican://osdf-itb.osg-htc.org/ndcc24-tutorial/home/example@pelicanplatform.org/100MB.dat
 ```
 
-> Try uploading to `/pearc24-tutorial/read-only/100MB.dat`.  What error do you see?
+> Try uploading to `/ndcc24-tutorial/read-only/100MB.dat`.  What error do you see?
 
 You should be able to list the object you've uploaded:
 
 ```
-pelican object ls pelican://osdf-itb.osg-htc.org/pearc24-tutorial/home/example@pelicanplatform.org
+pelican object ls pelican://osdf-itb.osg-htc.org/ndcc24-tutorial/home/example@pelicanplatform.org
 ```
 
 and download it back again
 
 ```
-pelican object get pelican://osdf-itb.osg-htc.org/pearc24-tutorial/home/example@pelicanplatform.org /tmp/100MB.download
+pelican object get pelican://osdf-itb.osg-htc.org/ndcc24-tutorial/home/example@pelicanplatform.org /tmp/100MB.download
 ```
 
 This should be a success!  Try a few other sub-commands of `pelican object` to explore the origin:
