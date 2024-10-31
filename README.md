@@ -10,7 +10,7 @@ This repository (branch) contains the materials that will be used for the Pelica
 
 ## Deploy a Pelican Origin
 
-Accompanying slides: ________<!-- [go.wisc.edu/19z0oe](https://go.wisc.edu/19z0oe)-->
+**Accompanying slides:** [https://go.wisc.edu/bh9u4g](https://go.wisc.edu/bh9u4g) 
 
 The following instructions assume the computer you are using has Docker and the web host certificates for using https, and that you have permission to use the OSDF ITB data federation (`osdf-itb.osg-htc.org`).
 Participants of the Hackathon will be given access to a virtual machine that satisfies these requirements.
