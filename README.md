@@ -5,7 +5,6 @@ This repository (branch) contains the materials that will be used for the Pelica
 **Hands-on Schedule**
 
 - "Deploy a Pelican Origin" ([README.md](./README.md)) <- ***current document***
-- [Optional] "Exploring Tokens in a Pelican Ecosystem" ([AUTHORIZATION.md](./AUTHORIZATION.md))
 - [Optional] "Using Data From the OSDF" ([pelican-plugin/README.md](./pelican-plugin/README.md))
 
 ## Deploy a Pelican Origin

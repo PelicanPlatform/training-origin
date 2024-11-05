@@ -3,7 +3,6 @@
 ## Other Tutorial Sections
 
 - "Deploy a Pelican Origin" ([README.md](/README.md))
-- "Exploring Tokens in a Pelican Ecosystem" ([AUTHORIZATION.md](/AUTHORIZATION.md))
 
 ## Using Data From the OSDF
 
