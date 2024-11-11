@@ -498,3 +498,10 @@ If you were to attempt to download the object directly from the Origin, it would
 This behavior applies generally to any change to objects stored in the Origin.
 If you change the name or contents of an object in the Origin, that change is **not** propagated to the caches where a copy of that object may be stored.
 And since by default the Client will download objects from a cache (if a copy of that object exists in a cache), that means the Client will download an older version of the object.
+
+> Worse still, the way that data is transferred through Pelican means that the object stored in the cache may be updated with the newer version,
+> *while in the middle of downloading the object from the cache*. 
+> The result is that the first X bytes downloaded from the cache correspond to the old version, while the last Y bytes correspond to the new version - almost certainly resulting in a corrupted object at the client.
+> 
+> For this reason, any change to the *content* of an object at an origin should **ALWAYS** have a corresponding change in the object's *name*.
+> (There is a development path under consideration for mitigating this issue.)
