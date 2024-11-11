@@ -14,7 +14,7 @@ This repository (branch) contains the materials that will be used for the Pelica
 The following instructions assume the computer you are using has Docker and the web host certificates for using https, and that you have permission to use the OSDF ITB data federation (`osdf-itb.osg-htc.org`).
 Participants of the Hackathon will be given access to a virtual machine that satisfies these requirements.
 
-This tutorial uses Pelican v7.10.11. <!-- previously 7.9.2.-->
+This tutorial uses Pelican v7.10.12. <!-- previously 7.9.2.-->
 
 **Jump to:**
 
@@ -99,7 +99,7 @@ Adapted from the installation instructions here: [https://docs.pelicanplatform.o
 2. Download the client tarball from the Pelican Platform. *Use the command below to ensure you are using the correct version for this tutorial!*
 
    ```
-   wget https://github.com/PelicanPlatform/pelican/releases/download/v7.10.11/pelican_Linux_x86_64.tar.gz
+   wget https://github.com/PelicanPlatform/pelican/releases/download/v7.10.12/pelican_Linux_x86_64.tar.gz
    ```
    <!-- last used this link: https://github.com/PelicanPlatform/pelican/releases/download/v7.9.2/pelican_Linux_x86_64.tar.gz -->
 
@@ -112,12 +112,12 @@ Adapted from the installation instructions here: [https://docs.pelicanplatform.o
    tar -xzf pelican_Linux_x86_64.tar.gz
    ```
 
-   This will create a directory `pelican-7.10.11`, which in turn contains the client binary.
+   This will create a directory `pelican-7.10.12`, which in turn contains the client binary.
 
    ```
    [trainee@pelicantrain20## pelican-client]$ ls
-   pelican-7.10.11 pelican_Linux_x86_64.tar.gz
-   [trainee@pelicantrain20## pelican-client]$ ls pelican-7.10.11
+   pelican-7.10.12 pelican_Linux_x86_64.tar.gz
+   [trainee@pelicantrain20## pelican-client]$ ls pelican-7.10.12
    LICENSE pelican README.md
    ```
 ### Add the Pelican Client to Your PATH
@@ -127,13 +127,13 @@ To make it easier to use, we will copy the `pelican` binary into a folder that i
 1. Move into the folder with the `pelican` binary.
 
    ```
-   cd pelican-7.10.11
+   cd pelican-7.10.12
    ```
 
    or if you're not in the right directory, the following command should get you to the right place:
 
    ```
-   cd $HOME/training-origin/pelican-client/pelican-7.10.11
+   cd $HOME/training-origin/pelican-client/pelican-7.10.12
    ```
 
 2. Create the directory for storing the `pelican` binary:
@@ -151,7 +151,7 @@ To make it easier to use, we will copy the `pelican` binary into a folder that i
    > If you lost track of which directoy the `pelican` binary is located, running the following command should get you to the right place:
    >
    > ```
-   > cd $HOME/training-origin/pelican-client/pelican-7.10.11
+   > cd $HOME/training-origin/pelican-client/pelican-7.10.12
    > ```
 
 4. Check that the `pelican` binary is in your PATH.
@@ -178,7 +178,10 @@ To make it easier to use, we will copy the `pelican` binary into a folder that i
    Should see something like this:
 
    ```
-   ____________________
+   Version: 7.10.12
+   Build Date: 2024-11-01T15:27:35Z
+   Build Commit: ecd6906af86706ee18c73ed0458b9e14caf6d09d
+   Built By: goreleaser
    ```
 
 <!-- Previously:
