@@ -439,7 +439,7 @@ After your Origin has been online for a few minutes, you can use the caching sys
 2. Get your object 
 
    ```
-   pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt ./cacheread-test.txt
+   pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt ./download.txt
    ```
 
    **You will need to change `pelicantrain20##` to the number used by your specific virtual machine, e.g., `pelicantrain2001`.**
@@ -454,26 +454,10 @@ After your Origin has been online for a few minutes, you can use the caching sys
 3. Check the contents of the downloaded object
 
    ```
-   cat cacheread-test.txt
+   cat download.txt
    ```
 
    The contents should match those of the file `$HOME/pelican-origin/data/test.txt`.
-
-### Download Directly From Your Origin
-
-Next, you will download your data directly from the Origin, bypassing the cache system that is used by default.
-
-1. Get your object directly using the `?directread` option.
-
-   ```
-   pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt?directread ./directread-test.txt
-   ```
-
-2. Check the contents of the downloaded object
-
-   ```
-   cat directread-test.txt
-   ```
 
 ### Rename the Object in the Origin and Download Again
 
@@ -482,7 +466,7 @@ Now you will explore an important implication about how the caching system works
 1. Remove the previously downloaded objects
 
    ```
-   rm directread-test.txt cacheread-test.txt
+   rm download.txt
    ```
 
 2. Move to the `data` folder and rename the `test.txt` file
@@ -498,26 +482,18 @@ Now you will explore an important implication about how the caching system works
    cd $HOME
    ```
 
-4. Try to download the object directly
-
-   ```
-   pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt?directread ./directread-test.txt
-   ```
-
-   This will FAIL! 
-
-5. Try to download the object using caching system (default)
+4. Try to download the object using caching system
 
    ```
    pelican object get pelican://osdf-itb.osg-htc.org/NDCC24-pelicantrain20##/test.txt ./cacheread-test.txt
    ```
 
-   This will SUCCEED!
+   This will SUCCEED, even though an object with that name no longer exists at the origin!!
 
 Because the object `/NDCC24-pelicantrain20##/test.txt` had been previously transferred using the caching system, a copy of that object *was kept in a cache*.
 By default, Pelican attempts to transfer objects from the nearest cache.
 So the default transfer attempt succeeded for `/NDCC24-pelicantrain20##/test.txt` because the Client downloaded the object from a cache.
-The attempt at downloading the object directly from the Origin failed, because that object no longer existed at the Origin.
+If you were to attempt to download the object directly from the Origin, it would fail because that object no longer existed at the Origin.
 
 This behavior applies generally to any change to objects stored in the Origin.
 If you change the name or contents of an object in the Origin, that change is **not** propagated to the caches where a copy of that object may be stored.
