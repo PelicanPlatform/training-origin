@@ -25,9 +25,11 @@ git checkout name-of-training-branch
 
 ### Available training branches
 
-| Branch name | Added | Description |
+| Branch name | Training Date | Description |
 | --- | --- | --- |
-| [htc24-pelican-tutorial](https://github.com/PelicanPlatform/training-origin/tree/htc24-pelican-tutorial) | 2024-07-02 | Materials for the session ["Data in Flight - Delivering Data with Pelican Tutorial" of HTC24](https://agenda.hep.wisc.edu/event/2175/sessions/3189/#20240710) |
+| [ndcc24-tutorial](https://github.com/PelicanPlatform/training-origin/tree/ndcc24-tutorial) | 2024-11-13 | Materials for a tutorial as part of the 2024 NDC-C Pathfinders Hackathon |
+| [pearc24-tutorial](https://github.com/PelicanPlatform/training-origin/tree/pearc24-tutorial) | 2024-07-22 | Materials for the session "Data in Flight - Delivering Data with Pelican Tutorial" of [PEARC24](https://pearc.acm.org/pearc24/) | 
+| [htc24-pelican-tutorial](https://github.com/PelicanPlatform/training-origin/tree/htc24-pelican-tutorial) | 2024-07-02 | Materials for the session ["Data in Flight - Delivering Data with Pelican Tutorial"](https://agenda.hep.wisc.edu/event/2175/sessions/3189/#20240710) of [HTC24](https://agenda.hep.wisc.edu/event/2175/) |
 
 ## More Information
 
