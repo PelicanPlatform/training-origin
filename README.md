@@ -80,7 +80,13 @@ The rest of this document contains the commands that will be executed during the
 Explanations of what is being done and why are provided in the accompanying presentation.
 
 > These materials are in the `ndcc24-tutorial` branch of the repository, which is currently the default branch of the repository.
-> In the future, the default branch will update to that of the latest tutorial.
+> In the future, the default branch will update to that of the latest tutorial, in which case you'll need to run the following command to 
+> obtain the materials of the current branch:
+>
+> ```
+> git clone -b ndcc24-tutorial https://github.com/PelicanPlatform/training-origin
+> ```
+>
 
 ## Using the Pelican Client to Transfer Data
 
