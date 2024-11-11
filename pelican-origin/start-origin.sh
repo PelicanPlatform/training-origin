@@ -34,5 +34,5 @@ docker run --rm -it \
     -v /etc/hostkey.pem:/etc/hostkey.pem \
     -v $(pwd)/config/pelican.yaml:/etc/pelican/pelican.yaml \
     -v $(pwd)/data:/data \
-    hub.opensciencegrid.org/pelican_platform/origin:v7.10.12 \
+    hub.opensciencegrid.org/pelican_platform/origin:v7.11.2 \
     serve -p 8444
