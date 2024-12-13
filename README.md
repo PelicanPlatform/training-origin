@@ -1,5 +1,7 @@
 # HTC24 Pelican Tutorial
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14454068.svg)](https://doi.org/10.5281/zenodo.14454068)
+
 This repository contains the materials that will be used during the HTC24 session ["Data in Flight - Delivering Data with Pelican"](https://agenda.hep.wisc.edu/event/2175/sessions/3189/#20240710).
 
 Accompanying slides: [go.wisc.edu/19xe2e](go.wisc.edu/19xe2e)
